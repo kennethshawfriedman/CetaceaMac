@@ -24,6 +24,13 @@ class ViewController: NSViewController {
 		//set up code & UI
 		textView.delegate = self
 		textView.isRichText = false
+		
+		let font = NSFont(name: "Avenir", size: 14)
+		if let avenirFont = font {
+			let attributes = NSDictionary(object: avenirFont, forKey: NSAttributedString.Key.font as NSCopying)
+			textView.typingAttributes = attributes as! [NSAttributedString.Key : Any]
+		}
+		
 		disableTextViewEditing()
 		hideSavingInfo()
 
@@ -31,13 +38,6 @@ class ViewController: NSViewController {
 		CetaceaConnect.getCetaceaEntry({ (data:Data) in
 			self.parseIncomingData(data: data)
 		})
-	}
-
-	//todo: can I comment this out? It came as template comde
-	override var representedObject: Any? {
-		didSet {
-		// Update the view, if already loaded.
-		}
 	}
 	
 	//parseIncomingdata does three things: (1) Sets up needed variables (2) parses incoming json (3) acts on the parsed data
