@@ -12,4 +12,4 @@ A MacOS App for cetacea.xyz
 - [ ] Google Auth instead of hard-coded user :)
 
 
-![Cetacea Mac](/img/app.png?raw=true "CetaceaMac UI")
+![Cetacea Mac](/Extras/screenshots/app.png?raw=true "CetaceaMac UI")
