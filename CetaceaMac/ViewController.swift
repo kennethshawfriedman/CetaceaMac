@@ -32,6 +32,8 @@ class ViewController: NSViewController {
 			textView.typingAttributes = attributes as! [NSAttributedString.Key : Any]
 		}
 		
+		textView.textContainerInset = NSSize.init(width: 5.0, height: 5.0)
+		
 		disableTextViewEditing()
 		hideSavingInfo()
 
