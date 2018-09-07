@@ -25,7 +25,8 @@ class ViewController: NSViewController {
 		textView.delegate = self
 		textView.isRichText = false
 		
-		let font = NSFont(name: "Avenir", size: 14)
+		let avenirFontName = "Avenir"
+		let font = NSFont(name: avenirFontName, size: 15)
 		if let avenirFont = font {
 			let attributes = NSDictionary(object: avenirFont, forKey: NSAttributedString.Key.font as NSCopying)
 			textView.typingAttributes = attributes as! [NSAttributedString.Key : Any]
