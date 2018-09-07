@@ -63,8 +63,19 @@ class ViewController: NSViewController {
 			//}
 			
 			let timestampKey = "timestamp"
-			if let incomingTimestamp = json[timestampKey] as? String {
-				timestamp = incomingTimestamp
+			if var incomingTimestamp = json[timestampKey] as? String {
+				
+				incomingTimestamp = String("\(incomingTimestamp) UTC")
+				let dateFormatter = DateFormatter()
+				dateFormatter.dateFormat = "MMM d, yyyy h:mm:ss a zzz" // Pass any format here you want according to your date response
+				let convDate = dateFormatter.date(from: incomingTimestamp)
+				if let utcDate = convDate {
+					let dateFormatter2 = DateFormatter()
+					dateFormatter2.dateFormat = "MMM d, yyyy h:mm:ss a"
+					let timeZoneDateTime = dateFormatter2.string(from: utcDate)
+					print(timeZoneDateTime)
+					timestamp = timeZoneDateTime
+				}
 			}
 
 		} catch let error as NSError {
